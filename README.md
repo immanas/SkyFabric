@@ -196,3 +196,19 @@ SkyFabric exposes full system visibility:
 
 ---
 
+## 🧠 What This Project Demonstrates
+
+This project demonstrates ability in:
+
+- Control plane design
+- Infrastructure as Code
+- Policy enforcement
+- Cloud safety & governance
+- State reconciliation
+- Platform engineering mindset
+
+This is **not a CRUD app**.  
+This is **infrastructure control logic**.
+
+---
+
