@@ -92,7 +92,31 @@ You never drive the car.
 You never touch the cloud.
 
 ---
+## 🧱 Architecture Overview
 
+```text
+User / Team
+   │
+   ▼
+Intent API (FastAPI)
+   │
+   ▼
+Decision Engine (Rules)
+   │
+   ▼
+Guardrails (Policy Checks)
+   │
+   ▼
+Execution Plan
+   │
+   ▼
+Terraform Executor
+   │
+   ▼
+Cloud (AWS)
+```
+
+---
 
 ## 🔁 How SkyFabric Works (Step-by-Step)
 
@@ -107,3 +131,6 @@ Example:
   "availability": "high",
   "cost": "low"
 }
+
+```
+
