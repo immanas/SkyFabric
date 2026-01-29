@@ -186,3 +186,13 @@ SkyFabric exposes full system visibility:
 }
 
 ```
+## 🛠 Tech Stack
+
+- **Backend:** FastAPI (Python)
+- **Database:** PostgreSQL
+- **IaC:** Terraform
+- **Cloud:** AWS
+- **Architecture:** Control Plane + Reconciliation Loop
+
+---
+
