@@ -93,3 +93,25 @@ You never touch the cloud.
 
 ---
 
+## 🧱 Architecture Overview
+
+```text
+User / Team
+   │
+   ▼
+Intent API (FastAPI)
+   │
+   ▼
+Decision Engine (Rules)
+   │
+   ▼
+Guardrails (Policy Checks)
+   │
+   ▼
+Execution Plan
+   │
+   ▼
+Terraform Executor
+   │
+   ▼
+Cloud (AWS)
