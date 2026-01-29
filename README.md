@@ -57,4 +57,39 @@ SkyFabric replaces cloud chaos with **one calm, central control** 🌈
 💡 **With SkyFabric, developers describe what they want once,  
 and the platform takes responsibility for making reality match that intent.**
 
+---
+
+## 💡 What SkyFabric Does (Very Simply)
+
+SkyFabric becomes the **boss of your cloud**.
+
+Instead of people touching the cloud directly:
+
+> People say:  
+> **“I want my service to be highly available and low cost.”**
+
+SkyFabric then:
+- Decides **how** to do it
+- Checks if it is **safe**
+- Blocks **bad changes**
+- Applies infrastructure via Terraform
+- Detects **drift** continuously
+
+---
+
+## 🧠 Simple Mental Model (Uber Analogy)
+
+Think of **SkyFabric like Uber for infrastructure**:
+
+| Uber | SkyFabric |
+|---|---|
+| You say where to go | You say what you want |
+| Uber decides route | SkyFabric decides infra |
+| Driver executes | Terraform executes |
+| Uber monitors trip | SkyFabric reconciles state |
+
+You never drive the car.  
+You never touch the cloud.
+
+---
 
