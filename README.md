@@ -131,6 +131,58 @@ Example:
   "availability": "high",
   "cost": "low"
 }
-
 ```
 
+### 2️⃣ Intent Stored
+- Stored immutably in PostgreSQL
+- Becomes the single source of truth
+
+---
+
+### 3️⃣ Decision Engine
+- Converts intent → decision plan  
+- Example:
+  - high availability → multi-instance  
+  - low cost → cost-optimized
+
+---
+
+### 4️⃣ Guardrails (Safety)
+- Blocks unsafe, expensive, or forbidden changes
+- Prevents outages, cost spikes, and human mistakes
+
+---
+
+### 5️⃣ Execution
+- Approved plan → Terraform variables
+- Terraform applies cloud infrastructure
+
+---
+
+### 6️⃣ Reconciliation (Drift Detection)
+- Compares desired state vs actual state
+- Reports **IN_SYNC** or **DRIFTED**
+- Prevents silent infrastructure drift
+
+###📡 Visibility (Status API)
+SkyFabric exposes full system visibility:
+
+```http GET /status/{service_name}
+🧪 Example Output
+{
+  "service_name": "orders-api",
+  "decision": {
+    "availability_plan": "multi-instance",
+    "cost_plan": "cost-optimized"
+  },
+  "execution_plan": {
+    "actions": [
+      { "type": "deploy_service" },
+      { "type": "configure_availability" },
+      { "type": "apply_cost_policy" }
+    ]
+  },
+  "reconciliation_status": "IN_SYNC"
+}
+
+```
