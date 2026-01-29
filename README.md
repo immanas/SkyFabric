@@ -212,3 +212,13 @@ This is **infrastructure control logic**.
 
 ---
 
+## 🔮 Future Enhancements
+
+- Multi-cloud execution (AWS / GCP / Azure)
+- Policy-as-code (OPA / Sentinel)
+- Auto-reconciliation loop
+- Web dashboard
+- CI/CD integration
+
+---
+
