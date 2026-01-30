@@ -42,6 +42,7 @@ SkyFabric replaces cloud chaos with **one calm, central control** 🌈
 
 ---
 
+
 ## 🔄 How SkyFabric Changes the Developer Experience (Before → After)
 
 | 🚧 Without SkyFabric (Before) | ✅ With SkyFabric (After) |
