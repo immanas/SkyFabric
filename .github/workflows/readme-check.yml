@@ -1,0 +1,35 @@
+name: README & Docs Quality Check
+
+on:
+  pull_request:
+    paths:
+      - "README.md"
+      - "**/*.md"
+  push:
+    paths:
+      - "README.md"
+      - "**/*.md"
+
+jobs:
+  markdown-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Lint Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v16
+        with:
+          globs: |
+            README.md
+            **/*.md
+
+      - name: Check broken links
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: >
+            --no-progress
+            --exclude-mail
+            --accept 200,429
+            README.md
