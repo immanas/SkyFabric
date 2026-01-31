@@ -1,0 +1,19 @@
+name: Security Scan (Trivy)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Trivy scan
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+          scan-type: fs
+          severity: CRITICAL,HIGH
