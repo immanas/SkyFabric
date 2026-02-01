@@ -121,6 +121,10 @@ Cloud (AWS)
 
 ## 🔁 How SkyFabric Works (Step-by-Step)
 
+
+![Architecture Diagram](skyfebric.png)
+
+
 ### 1️⃣ Submit Intent
 
 ```http
