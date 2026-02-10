@@ -89,7 +89,6 @@ Think of **SkyFabric like Uber for infrastructure**:
 You never drive the car.  
 You never touch the cloud.
 
----
 ## 🧱 System Architecture (Single Source of Truth)
 
 ```text
@@ -113,6 +112,7 @@ Terraform Executor
    ▼
 Cloud (AWS)
 ```
+
 ## 🧱 Design Rationale (Why This Architecture)
 
 - **Intent-Driven Model**: Separates *what the user wants* from *how it is implemented*, reducing human error.
@@ -240,8 +240,6 @@ Designed to scale **safely**, not aggressively.
 
 All choices were **intentional**, not accidental.
 
----
-
 ## 🚫 Explicit Limitations
 
 - AWS is the only execution target currently
@@ -280,7 +278,6 @@ This is **not a CRUD app**.
 This is **infrastructure control logic**.
 
 
-
 ## 🔮 Future Enhancements
 
 - Multi-cloud execution (AWS / GCP / Azure)
@@ -289,7 +286,6 @@ This is **infrastructure control logic**.
 - Web dashboard
 - CI/CD integration
 
----
 
 ### 🛠️ How to Contribute
 
@@ -299,4 +295,4 @@ This is **infrastructure control logic**.
 4. 📬 Submit a pull request describing your enhancement
 
  🤝 Let's Build This Together!
-Made with 💚 by **Manas Gantait**  
+Made with 🤍 by **Manas Gantait**  
