@@ -186,6 +186,43 @@ SkyFabric exposes full system visibility:
 }
 
 ```
+
+## ⚠️ Failure Scenarios & Handling
+
+SkyFabric is designed with failure as a first-class concern:
+
+- ❌ **Terraform apply fails** → Execution is halted and failure is recorded.
+- ⚠️ **Partial execution** → State is marked inconsistent and surfaced via status API.
+- 🚫 **Policy violation** → Execution is blocked before any cloud change occurs.
+- ☁️ **Cloud API failure** → Error is captured and reported without corrupting state.
+- 🔁 **Retry safety** → Idempotent intent execution prevents duplicate or unsafe changes.
+
+## 🔐 Security Model & Guardrails
+
+- 🔑 **IAM-scoped execution roles** limit Terraform permissions to approved resources.
+- 🧑‍💼 **Intent submission boundaries** define who can request changes.
+- 🛑 **Guardrails block unsafe changes** (high cost, forbidden regions, insecure configs).
+- 📜 **Immutable intent records** provide a full audit trail of infrastructure decisions.
+
+Security is enforced **before execution**, not after incidents.
+
+
+## 📈 Scalability & Performance Thinking
+
+- ⚙️ **Stateless APIs** allow horizontal scaling of the control plane.
+- 🔁 Terraform executions are **isolated per intent**.
+- 🧠 Decision engine scales independently from execution layer.
+- 🚦 Execution frequency can be rate-limited to control load.
+
+Designed to scale **safely**, not aggressively.
+
+## 💰 Cost Awareness & Trade-offs
+
+- 💸 Control-plane costs remain low due to stateless services.
+- ⚖️ Trade-off: Terraform execution is slower than direct SDK calls but safer.
+- 📉 Reconciliation frequency is configurable to balance cost vs freshness.
+- 🚫 Prevents accidental high-cost infrastructure changes before deployment.
+
 ## 🛠 Tech Stack
 
 - **Backend:** FastAPI (Python)
@@ -194,7 +231,39 @@ SkyFabric exposes full system visibility:
 - **Cloud:** AWS
 - **Architecture:** Control Plane + Reconciliation Loop
 
+## ⚖️ Engineering Trade-offs & Decisions
+
+- **Rules engine over ML** → Predictable, explainable decisions.
+- **Terraform over SDK calls** → Proven safety and state management.
+- **API-driven over UI-driven** → Enables automation and CI/CD integration.
+- **Single-cloud execution (AWS)** → Focus on correctness before expansion.
+
+All choices were **intentional**, not accidental.
+
 ---
+
+## 🚫 Explicit Limitations
+
+- AWS is the only execution target currently
+- No graphical UI (API-only control plane)
+- Manual approval flows not yet implemented
+- Reconciliation is scheduled, not continuous
+
+These are **scope decisions**, not oversights.
+
+
+## ▶️ How to Run Locally (Minimal)
+
+```bash
+# Start API
+uvicorn main:app --reload
+
+# Initialize Terraform
+terraform init
+
+# Apply execution plan
+terraform apply
+```
 
 ## 🧠 What This Project Demonstrates
 
@@ -210,7 +279,7 @@ This project demonstrates ability in:
 This is **not a CRUD app**.  
 This is **infrastructure control logic**.
 
----
+
 
 ## 🔮 Future Enhancements
 
