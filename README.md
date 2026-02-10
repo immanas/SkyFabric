@@ -3,7 +3,7 @@
 ✨ **SkyFabric** is a **central system** that lets you describe **what you want**,  and then **handles everything needed to make it run and stay healthy** across cloud environments.
 
 🧠 You tell SkyFabric **your intent**:
-> “I want my service running in production, always available, and not expensive.”
+> “I want my service running in production, always available, and not expensive. ”
 
 ⚙️ SkyFabric then:
 - Decides **where** it should run ☁️
