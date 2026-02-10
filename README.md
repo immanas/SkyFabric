@@ -14,10 +14,11 @@
 🤝 You stop manually managing infrastructure.  
 🎯 You focus on building software.  
 
-💡 **In short:**  
-SkyFabric replaces cloud chaos with **one calm, central control** 🌈
 
----
+## 🧠 One-Line Truth
+
+**SkyFabric is an intent-driven cloud control plane that translates high-level intent into safe, cost-aware, and continuously reconciled infrastructure using Infrastructure as Code.**
+
 
 
 ## 🧩 Real-Life Problems Developers Face (Without SkyFabric)
@@ -40,7 +41,7 @@ SkyFabric replaces cloud chaos with **one calm, central control** 🌈
 💡 **These problems appear daily in real production teams and grow worse as systems scale across clouds.**
 
 
----
+
 
 
 ## 🔄 How SkyFabric Changes the Developer Experience (Before → After)
@@ -58,25 +59,21 @@ SkyFabric replaces cloud chaos with **one calm, central control** 🌈
 💡 **With SkyFabric, developers describe what they want once,  
 and the platform takes responsibility for making reality match that intent.**
 
----
 
-## 💡 What SkyFabric Does (Very Simply)
+## 📌 What SkyFabric IS / IS NOT
 
-SkyFabric becomes the **boss of your cloud**.
+### ✅ SkyFabric IS
+- An **intent-based control plane** for cloud infrastructure
+- A **policy-aware orchestration system** built on Terraform
+- A **single source of truth** for desired infrastructure state
+- A **reconciliation engine** that detects and reports drift
 
-Instead of people touching the cloud directly:
+### ❌ SkyFabric IS NOT
+- A PaaS or Heroku-like platform
+- A Kubernetes replacement
+- A cloud provider abstraction layer
+- A UI-first management tool
 
-> People say:  
-> **“I want my service to be highly available and low cost.”**
-
-SkyFabric then:
-- Decides **how** to do it
-- Checks if it is **safe**
-- Blocks **bad changes**
-- Applies infrastructure via Terraform
-- Detects **drift** continuously
-
----
 
 ## 🧠 Simple Mental Model (Uber Analogy)
 
@@ -93,7 +90,7 @@ You never drive the car.
 You never touch the cloud.
 
 ---
-## 🧱 Architecture Overview
+## 🧱 System Architecture (Single Source of Truth)
 
 ```text
 User / Team
@@ -116,8 +113,14 @@ Terraform Executor
    ▼
 Cloud (AWS)
 ```
+## 🧱 Design Rationale (Why This Architecture)
 
----
+- **Intent-Driven Model**: Separates *what the user wants* from *how it is implemented*, reducing human error.
+- **Terraform as Executor**: Leverages proven IaC tooling instead of reinventing cloud provisioning logic.
+- **PostgreSQL as Source of Truth**: Ensures durable, versioned storage of intents and execution state.
+- **Reconciliation Loop**: Prevents silent drift by continuously comparing desired and actual cloud state.
+- **Control Plane Pattern**: Mirrors real platform-engineering systems used in production environments.
+
 
 ## 🔁 How SkyFabric Works (Step-by-Step)
 
@@ -142,27 +145,19 @@ Example:
 - Stored immutably in PostgreSQL
 - Becomes the single source of truth
 
----
-
 ### 3️⃣ Decision Engine
 - Converts intent → decision plan  
 - Example:
   - high availability → multi-instance  
   - low cost → cost-optimized
 
----
-
 ### 4️⃣ Guardrails (Safety)
 - Blocks unsafe, expensive, or forbidden changes
 - Prevents outages, cost spikes, and human mistakes
 
----
-
 ### 5️⃣ Execution
 - Approved plan → Terraform variables
 - Terraform applies cloud infrastructure
-
----
 
 ### 6️⃣ Reconciliation (Drift Detection)
 - Compares desired state vs actual state
