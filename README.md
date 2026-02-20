@@ -200,8 +200,10 @@ Voice chat ended
 - Drift correction depends on detection interval  
 - Not optimized for extremely high-frequency infra changes
 
+🙌 Contributions Welcome!
+Skyfebric  is an open-source initiative, and we welcome contributions from developers, data scientists, cloud engineers, and Devops enthusiasts!
 
-## 🔮 Future Enhancements
+## 🔮 Future Enhancements :
 
 - Multi-cloud execution (AWS / GCP / Azure)
 - Policy-as-code (OPA / Sentinel)
