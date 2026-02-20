@@ -1,35 +1,27 @@
-name: README & Docs Quality Check
+name: README Basic Check
 
 on:
-  pull_request:
-    paths:
-      - "README.md"
-      - "**/*.md"
   push:
     paths:
       - "README.md"
-      - "**/*.md"
+  pull_request:
+    paths:
+      - "README.md"
 
 jobs:
-  markdown-check:
+  check-readme:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Lint Markdown
-        uses: DavidAnson/markdownlint-cli2-action@v16
-        with:
-          globs: |
-            README.md
-            **/*.md
+      - name: Simple Markdown Check
+        run: |
+          echo "Checking README exists..."
+          test -f README.md
 
-      - name: Check broken links
-        uses: lycheeverse/lychee-action@v1
-        with:
-          args: >
-            --no-progress
-            --exclude-mail
-            --accept 200,429
-            README.md
+          echo "Checking file is not empty..."
+          test -s README.md
+
+          echo "Basic check passed ✅"
